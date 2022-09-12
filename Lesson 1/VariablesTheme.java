@@ -128,7 +128,6 @@ public class VariablesTheme {
         String out = String.format("%02d:%02d:%02d", hours, minutes, secNew);
         System.out.println(out);
     }
-
     public static int[] splitNumb(int num) {
         int[] split = new int[3];
         split[0] = num / 100;
