@@ -208,7 +208,6 @@ public class CyclesTheme {
         int result = 0;
         char ch5 = '|';
         char ch6 = '_';
-        char ch7 = 28;
         char ch8 = 0;
         char ch9 = '-';
         boolean firsIteration = true;
@@ -221,6 +220,10 @@ public class CyclesTheme {
                 //System.out.printf("%3c", ch6);
                 System.out.printf("%3c", ch8);
             }
+        }
+        System.out.print("\n");
+        for (int i = 0; i < 9; i++) {
+            System.out.printf("%3c", '-');
         }
         System.out.print("\n");
         for (int i = 2; i < 10; i++) {
