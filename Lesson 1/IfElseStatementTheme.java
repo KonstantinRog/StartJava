@@ -64,17 +64,21 @@ public class IfElseStatementTheme {
         System.out.println("\n4. Поиск одинаковых цифр в числах");
         int num4 = 345;
         int num5 = 365;
-        int[] split = splitNumb(num4);
-        int[] split2 = splitNumb(num5);
+        int numOfHundreds1 = num4 / 100;
+        int numOfTens1 = num4 / 10 % 10;
+        int numOfOne1 = num4 % 10;
+        int numOfHundreds2 = num5 / 100;
+        int numOfTens2 = num5 / 10 % 10;
+        int numOfOne2 = num5 % 10;
         System.out.println("Исходные числа: " + num4 + " и " + num5);
-        if (split[0] == split2[0]) {
-            System.out.println("Одинаковая цифра " + split[0] + " в 3 разряде");
+        if (numOfHundreds1 == numOfHundreds2) {
+            System.out.println("Одинаковая цифра " + numOfHundreds1 + " в 3 разряде");
         }
-        if (split[1] == split2[1]) {
-            System.out.println("Одинаковая цифра " + split[1] + " во 2 разряде");
+        if (numOfTens1 == numOfTens2) {
+            System.out.println("Одинаковая цифра " + numOfTens2 + " во 2 разряде");
         }
-        if (split[2] == split2[2]) {
-            System.out.println("Одинаковая цифра " + split[2] + " в 1 разряде");
+        if (numOfOne1 == numOfOne2) {
+            System.out.println("Одинаковая цифра " + numOfOne1 + " в 1 разряде");
         }
 
         System.out.println("\n5.Определение буквы, числа или символа по их коду");
@@ -149,30 +153,18 @@ public class IfElseStatementTheme {
 
         System.out.println("\n9.Подсчет количества банкнот");
         int takePrice = 567;
-        int hundreds = 0;
-        int tens = 0;
-        int one = 0;
         int sum = 0;
-        split = splitNumb(takePrice);
-        hundreds = split[0];
-        tens = split[1];
-        one = split[2];
-        if (tens > 5) {
-            tens = 5;
-            one += (split[1] - 5) * 10;
+        numOfHundreds1 = takePrice / 100;
+        numOfTens1 = takePrice / 10 % 10;
+        numOfOne1 = takePrice % 10;
+        if (numOfTens1 > 5) {
+            numOfOne1 += (numOfTens1 - 5) * 10;
+            numOfTens1 = 5;
         }
-        sum = hundreds * 100 + tens * 10 + one;
-        System.out.println("Номинал: 100, " + "количество: " + hundreds);
-        System.out.println("Номинал: 10, " + "количество: " + tens);
-        System.out.println("Номинал: 1, " + "количество: " + one);
+        sum = numOfHundreds1 * 100 + numOfTens1 * 10 + numOfOne1;
+        System.out.println("Номинал: 100, " + "количество: " + numOfHundreds1);
+        System.out.println("Номинал: 10, " + "количество: " + numOfTens1);
+        System.out.println("Номинал: 1, " + "количество: " + numOfOne1);
         System.out.println("Исходная сумма: " + sum);
-    }
-
-    public static int[] splitNumb(int num) {
-        int[] split = new int[3];
-        split[0] = num / 100;
-        split[1] = num / 10 % 10;
-        split[2] = num % 10;
-        return split;
     }
 }
