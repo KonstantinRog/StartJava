@@ -44,18 +44,20 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n3. Работа с числом");
-        int num3 = 777;
-        if (num3 > 0 ) {
+        int num3 = 746;
+        if (num3 != 0) {
             if (num3 % 2 == 0) {
-                System.out.println("Число " + num3 + " больше 0 и четное");
+                if (num3 > 0) {
+                    System.out.println("Число " + num3 + " больше 0 и четное");
+                } else {
+                    System.out.println("Число " + num3 + " меньше 0 и четное");
+                }
             } else {
-                System.out.println("Число " + num3 + " больше 0 и нечетное");
-            }
-        } else if (num3 < 0) {
-            if (num3 % 2 == 0) {
-                System.out.println("Число " + num3 + " меньше 0 и четное");
-            } else {
-                System.out.println("Число " + num3 + " меньше 0 и нечетное");
+                if (num3 > 0) {
+                    System.out.println("Число " + num3 + " больше 0 и нечетное");
+                } else {
+                    System.out.println("Число " + num3 + " меньше 0 и нечетное");
+                }
             }
         } else {
             System.out.println("Число равно 0");
@@ -82,59 +84,56 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n5.Определение буквы, числа или символа по их коду");
-        char ch = '\u0057';
-        if ((int) ch >= 48 && (int) ch <= 57) {
-            System.out.println(ch + " - число"); 
-        } else if ((int) ch >= 65 && (int) ch <= 90) {
-            System.out.println(ch + " - большая буква"); 
-        } else if ((int) ch >= 97 && (int) ch <= 122) {
-            System.out.println(ch + " - маленькая буква"); 
+        char someChar = '\u0057';
+        if (someChar >= '0' && someChar <= '9') {
+            System.out.println(someChar + " - число"); 
+        } else if (someChar >= 'A' && someChar <= 'Z') {
+            System.out.println(someChar + " - большая буква"); 
+        } else if (someChar >= 'a' && someChar <= 'z') {
+            System.out.println(someChar + " - маленькая буква"); 
         } else {
-            System.out.println(ch + " - не буква и не число"); 
+            System.out.println(someChar + " - не буква и не число"); 
         }
 
         System.out.println("\n 6.Определение суммы вклада и начисленных банком %");
-        float cont = 300000f;
+        float deposit = 300000f;
         float percent = 0f;
-        float allSum = 0f;
-        if (cont < 100000) {
-            percent = (cont / 100) * 5;
-        } else if (cont >= 100000 && cont <= 300000) {
-            percent = (cont / 100) * 7;
+        if (deposit < 100000) {
+            percent = (deposit / 100) * 5;
+        } else if (deposit >= 100000 && deposit <= 300000) {
+            percent = (deposit / 100) * 7;
         } else {
-            percent = (cont / 100) * 10;
+            percent = (deposit / 100) * 10;
         }
-        allSum = cont + percent;
-        System.out.print("Сумма вклада: " + cont + " Начисленный процент: " + percent);
+        float allSum = deposit + percent;
+        System.out.print("Сумма вклада: " + deposit + " Начисленный процент: " + percent);
         System.out.print(" Итоговая сумма: " + allSum);
 
         System.out.println("\n\n7.Определение оценки по предметам");
-        int history = 59;
-        int prog = 91;
+        int percentForHistory = 59;
+        int percentForProgramming = 91;
         int markHist = 0;
         int markProg = 0;
-        float averMark = 0f;
-        float averPerc = 0f;
-        if (history <= 60) {
+        if (percentForHistory <= 60) {
             markHist = 2;
-        } else if (history > 91) {
-            markHist = 3;
-        } else if (history > 73) {
-            markHist = 4;
-        } else if (history > 60) {
+        } else if (percentForHistory > 91) {
             markHist = 5;
+        } else if (percentForHistory > 73) {
+            markHist = 4;
+        } else if (percentForHistory > 60) {
+            markHist = 3;
         }
-        if (prog <= 60) {
+        if (percentForProgramming <= 60) {
             markProg = 2;
-        } else if (prog > 92) {
-            markProg = 3;
-        } else if (prog > 73) {
-            markProg = 4;
-        } else if (prog > 60) {
+        } else if (percentForProgramming > 91) {
             markProg = 5;
+        } else if (percentForProgramming > 73) {
+            markProg = 4;
+        } else if (percentForProgramming > 60) {
+            markProg = 3;
         }
-        averMark = (markProg + markHist) / 2;
-        averPerc = (history + prog) / 2;
+        float averMark = (markProg + markHist) / 2;
+        float averPerc = (percentForHistory + percentForProgramming) / 2;
         System.out.println(markHist + " - история\n" + markProg + " - программирование");
         System.out.println("Средний балл оценок по предметам: " + averMark);
         System.out.println("Средний % по предметам: " + averPerc);
@@ -143,17 +142,15 @@ public class IfElseStatementTheme {
         int arendPerMonth = 5000;
         int salePerMonth = 13000;
         int netCost = 9000;
-        int yearProfit = 0;
-        yearProfit = (salePerMonth - arendPerMonth - netCost) * 12;
+        int yearProfit = (salePerMonth - arendPerMonth - netCost) * 12;
         if (yearProfit > 0) {
             System.out.println("Прибыль за год: +" + yearProfit + " руб.");
-        } else if (yearProfit < 0) {
+        } else {
             System.out.println("Прибыль за год: " + yearProfit + " руб.");
         }
 
         System.out.println("\n9.Подсчет количества банкнот");
         int takePrice = 567;
-        int sum = 0;
         numOfHundreds1 = takePrice / 100;
         numOfTens1 = takePrice / 10 % 10;
         numOfOne1 = takePrice % 10;
@@ -161,7 +158,7 @@ public class IfElseStatementTheme {
             numOfOne1 += (numOfTens1 - 5) * 10;
             numOfTens1 = 5;
         }
-        sum = numOfHundreds1 * 100 + numOfTens1 * 10 + numOfOne1;
+        int sum = numOfHundreds1 * 100 + numOfTens1 * 10 + numOfOne1;
         System.out.println("Номинал: 100, " + "количество: " + numOfHundreds1);
         System.out.println("Номинал: 10, " + "количество: " + numOfTens1);
         System.out.println("Номинал: 1, " + "количество: " + numOfOne1);
