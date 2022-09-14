@@ -33,18 +33,14 @@ public class VariablesTheme {
         System.out.println("J  J  aaaaa  V V  aaaaa    \n JJ  a     a  V  a     a");
 
         System.out.println("\n4. Отображение min и max значений числовых типов данных");
-        byte numForByte = 127;
-        short numForShort = 32767;
-        int numForInt = 2147483647;
-        long numForLong = 9223372036854775807l;
-        System.out.println(++numForByte);
-        System.out.println(--numForByte);
-        System.out.println(++numForShort);
-        System.out.println(--numForShort);
-        System.out.println(++numForInt);
-        System.out.println(--numForInt);
-        System.out.println(++numForLong);
-        System.out.println(--numForLong);
+        byte numByte = 127;
+        short numShort = 32767;
+        int numInt = 2147483647;
+        long numLong = 9223372036854775807l;
+        System.out.println(numByte + ", " + ++numByte + ", " + --numByte);
+        System.out.println(numShort + ", " + ++numShort + ", " + --numShort);
+        System.out.println(numInt + ", " + ++numInt + ", " + --numInt);
+        System.out.println(numLong + ", " + ++numLong + ", " + --numLong);
 
         System.out.println("\n5. Перестановка значений переменных");
         int num1 = 2;
@@ -59,16 +55,16 @@ public class VariablesTheme {
 
         System.out.println("С помощью арифметических операций:");
         System.out.println("Исходные значения переменных: " + num1 + " и " + num2);
-        num1 = num1 + num2;
+        num1 += num2;
         num2 = num1 - num2;
-        num1 = num1 - num2;
+        num1 -= num2;
         System.out.println("Новые значения переменных: " + num1 + " и " + num2);
 
         System.out.println("С помощью побитовой операции:");
         System.out.println("Исходные значения переменных: " + num1 + " и " + num2);
-        num1 = num1 ^ num2;
-        num2 = num2 ^ num1;
-        num1 = num1 ^ num2;
+        num1 ^= num2;
+        num2 ^= num1;
+        num1 ^= num2;
         System.out.println("Новые значения переменных: " + num1 + " и " + num2 );
 
         System.out.println("\n6. Вывод символов и их кодов");
@@ -84,15 +80,14 @@ public class VariablesTheme {
         System.out.println("Код символа: " + (int) ch5 + " " + ch5);
 
         System.out.println("\n7. Отображение количества сотен, десятков и единиц числа");
-        int val = 123;
-        int numOfHundreds = val / 100;
-        int numOfTens = val / 10 % 10;
-        int numOfOne = val % 10;
-        System.out.println("Число " + val + " содержит:\n" + numOfHundreds + " сотен");
+        int originNum = 123;
+        int numOfHundreds = originNum / 100;
+        int numOfTens = originNum / 10 % 10;
+        int numOfOne = originNum % 10;
+        System.out.println("Число " + originNum + " содержит:\n" + numOfHundreds + " сотен");
         System.out.println(numOfTens + " десятков\n" + numOfOne + " единиц"); 
 
         System.out.println("\n8. Вывод на консоль ASCII-арт Дюка");
-        //???
         var sl = '/';
         char bs = '\\';
         char uL = '_';
@@ -106,17 +101,17 @@ public class VariablesTheme {
         System.out.printf("%c%c%c%c%c%c%c%c%c%c\n", sl, uL, uL, uL, uL, sl, bs, uL, uL, bs);
 
         System.out.println("\n9. Произведение и сумма цифр числа");
-        int originNum = 345;
+        originNum = 345;
         int sum = originNum / 100 + originNum / 10 % 10 + originNum % 10;
-        int pr = (originNum / 100) * (originNum / 10 % 10) * (originNum % 10);
+        int prod = (originNum / 100) * (originNum / 10 % 10) * (originNum % 10);
         System.out.println("Сумма цифр числа " + originNum + " = " + sum);
-        System.out.println("Произведение цифр числа " + originNum + " = " + pr);
+        System.out.println("Произведение цифр числа " + originNum + " = " + prod);
 
         System.out.println("\n10. Преобразование секунд");
-        int sec = 86399;
-        int hours = sec / 3600;
-        int minutes = (sec % 3600) / 60;
-        int secNew = (sec % 3600) % 60;
-        System.out.printf("%02d:%02d:%02d", hours, minutes, secNew);
+        int srcSec = 86399;
+        int hours = srcSec / 3600;
+        int mins = (srcSec % 3600) / 60;
+        int secs = srcSec % 60;
+        System.out.printf("%02d:%02d:%02d", hours, mins, secs);
     }
 }
