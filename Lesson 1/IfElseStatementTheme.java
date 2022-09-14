@@ -95,7 +95,7 @@ public class IfElseStatementTheme {
             System.out.println(someChar + " - не буква и не число"); 
         }
 
-        System.out.println("\n 6.Определение суммы вклада и начисленных банком %");
+        System.out.println("\n6.Определение суммы вклада и начисленных банком %");
         float deposit = 300000f;
         float percent = 0f;
         if (deposit < 100000) {

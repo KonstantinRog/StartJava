@@ -37,25 +37,19 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n3. Вывод реверсивного числа и суммы его цифр");
+        int j = 0;
         int num4 = 1234;
         int sum = 0;
-        int j = 0;
-        int multiplier = 0;
-        int multiplier2 = 0;
-        int[] arr = new int[4];
-        while (j < 4) {
-            multiplier = (int) Math.pow(10, 4 - j);
-            multiplier2 = (int) Math.pow(10, 3 - j);
-            if (j == 0) {
-                arr[j] = num4 / multiplier2;
-                sum += num4 / multiplier2;
-            } else {
-                arr[j] = num4 % multiplier / multiplier2;
-                sum += num4 % multiplier / multiplier2;
-            }
-            j++;
+        int numReverse = 0;
+        int numCheck = num4;
+        int del = 0;
+        while (numCheck != 0) {
+            del = numCheck % 10;
+            sum += del;
+            numReverse = numReverse * 10 + del;
+            numCheck /= 10;
         }
-        System.out.println("Число в обратном порядке: " + arr[3] + arr[2] + arr [1] + arr [0]);
+        System.out.println("Число в обратном порядке: " + numReverse);
         System.out.println("Сумма цифр: " + sum);
 
         System.out.println("\n4. Вывод чисел на консоль в несколько строк");
@@ -77,19 +71,14 @@ public class CyclesTheme {
         int num5 = 3141591;
         int num6 = 0;
         int numbOne = 0;
-        j = 0;
-        while (j < 7) {
-            multiplier = (int) Math.pow(10, 7 - j);
-            multiplier2 = (int) Math.pow(10, 6 - j);
-            if (j == 0) {
-                num6 = num5 / multiplier2;
-            } else {
-                num6 = num5 % multiplier / multiplier2;
-            }
-            if (num6 == 1) {
+        numCheck = num5;
+        numReverse = 0;
+        while (numCheck != 0) {
+            del = numCheck % 10;
+            numCheck /= 10;
+            if (del == 1) {
                 numbOne++;
             }
-            j++;
         }
         if (numbOne % 2 == 0) {
             System.out.println("Число " + num5 + " содержит четное количество единиц");
@@ -161,9 +150,8 @@ public class CyclesTheme {
 
         System.out.println("\n8. Проверка, является ли число палиндромом");
         int numFirst = 1234321;
-        int numCheck = numFirst;
-        int del = 0;
-        int numReverse = 0;
+        numCheck = numFirst;
+        del = 0;
         while (numCheck != 0) {
             del = numCheck % 10;
             numReverse = numReverse * 10 + del;
@@ -184,11 +172,11 @@ public class CyclesTheme {
         while (num7 / 100 > 9) {
             sumLast += num7 % 10;
             numReverse = numReverse * 10 + num7 % 10;
-            num7 = num7 / 10;
+            num7 /= 10;
         }
         while (numReverse != 0) {
             numForCheck = numForCheck * 10 + numReverse % 10;
-            numReverse = numReverse / 10;
+            numReverse /= 10;
         }
         numCheck = num7;
         while (numCheck != 0) {
@@ -204,7 +192,6 @@ public class CyclesTheme {
         }
 
         System.out.println("\n10. Вывод таблицы умножения Пифагора");
-        //Вопрос по тому как реализовать подчеркивания???
         int result = 0;
         char ch5 = '|';
         char ch6 = '_';
@@ -217,7 +204,6 @@ public class CyclesTheme {
             } else if (i == 1) {
                 System.out.print(ch5);
             } else {
-                //System.out.printf("%3c", ch6);
                 System.out.printf("%3c", ch8);
             }
         }
