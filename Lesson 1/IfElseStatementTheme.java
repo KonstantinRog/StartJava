@@ -110,30 +110,30 @@ public class IfElseStatementTheme {
         System.out.print(" Итоговая сумма: " + allSum);
 
         System.out.println("\n\n7.Определение оценки по предметам");
-        int percentForHistory = 59;
-        int percentForProgramming = 91;
+        int historyPercent = 59;
+        int programmingPercent = 91;
         int markHist = 0;
         int markProg = 0;
-        if (percentForHistory <= 60) {
-            markHist = 2;
-        } else if (percentForHistory > 91) {
+        if (historyPercent > 91) {
             markHist = 5;
-        } else if (percentForHistory > 73) {
+        } else if (historyPercent > 73) {
             markHist = 4;
-        } else if (percentForHistory > 60) {
+        } else if (historyPercent > 60) {
             markHist = 3;
+        } else {
+            markHist = 2;
         }
-        if (percentForProgramming <= 60) {
-            markProg = 2;
-        } else if (percentForProgramming > 91) {
+        if (programmingPercent > 91) {
             markProg = 5;
-        } else if (percentForProgramming > 73) {
+        } else if (programmingPercent > 73) {
             markProg = 4;
-        } else if (percentForProgramming > 60) {
+        } else if (programmingPercent > 60) {
             markProg = 3;
+        } else {
+            markProg = 2;
         }
         float averMark = (markProg + markHist) / 2;
-        float averPerc = (percentForHistory + percentForProgramming) / 2;
+        float averPerc = (historyPercent + programmingPercent) / 2;
         System.out.println(markHist + " - история\n" + markProg + " - программирование");
         System.out.println("Средний балл оценок по предметам: " + averMark);
         System.out.println("Средний % по предметам: " + averPerc);
