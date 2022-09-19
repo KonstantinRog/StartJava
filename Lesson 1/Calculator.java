@@ -4,7 +4,7 @@ public class Calculator {
         int b = 3;
         int result = 0;
         char sign = '*';
-        boolean isNoOut = false;
+        boolean wrong = false;
 
         if (sign == '+') {
             result = a + b;
@@ -14,7 +14,7 @@ public class Calculator {
             result = a * b;
         } else if (sign == '/') {
             if (b == 0) {
-                isNoOut = true;
+                wrong = true;
             } else {
                 result = a / b;
             }
@@ -22,19 +22,18 @@ public class Calculator {
             result = 1;
             for (int i = b; i != 0; i--) {
                 result *= a;
-                System.out.println(result);
             }
         } else if (sign == '%') {
             if (b == 0) {
-                isNoOut = true;
+                wrong = true;
             } else {
                 result = a % b;
             }
         } else {
-            isNoOut = true;
+            wrong = true;
         }
 
-        if (isNoOut == true) {
+        if (wrong == true) {
             System.out.println("Ошибка вычислений");
         } else {
             System.out.println(a + " " + sign + " " + b + " = " + result);
