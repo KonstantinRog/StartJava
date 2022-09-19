@@ -79,45 +79,40 @@ public class CyclesTheme {
         }
 
         System.out.println("\n6. Отображение фигур в консоли");
-        boolean reverse = false;
         for (int i = 1; i <= 50; i ++) {
             System.out.print('*');
-            if (i % 10 ==0) {
+            if (i % 10 == 0) {
                 System.out.println();
             }
         }
 
         System.out.println();
-        counter = 5;
-        while (counter > 0) {
-            int counter2 = counter;
-            while (counter2 > 0) {
+        int figureLines = 5;
+        while (figureLines > 0) {
+            int charInLine = figureLines;
+            while (charInLine > 0) {
                 System.out.print('#');
-                counter2--;
+                charInLine--;
             }
             System.out.println();
-            counter--;
+            figureLines--;
         }
 
-        counter = 0;
+        figureLines = 0;
         do {
-            int counter2 = counter;
-            if (counter2 != 0) {
+            int charInLine = figureLines;
+            if (charInLine > 3) {
+                charInLine = 6 - charInLine;
+            }
+            if (charInLine != 0) {
                 do {
                     System.out.print('$');
-                    counter2--;
-                } while(counter2 > 0);
+                    charInLine--;
+                } while(charInLine > 0);
             }
-            if (counter == 3) {
-                reverse = true;
-            }
-            if (reverse) {
-                counter--;
-            } else {
-                counter++;
-            }
+            figureLines++;
             System.out.println();
-        } while(counter > 0);
+        } while(figureLines < 6);
 
         System.out.println("\n7. Отображение ASCII-символов");
         System.out.println("Символы, идущие до цифр и имеющие нечетные коды:");
@@ -151,27 +146,25 @@ public class CyclesTheme {
         System.out.println("\n9. Определение, является ли число счастливым");
         int num9 = 124304;
         int copyNum9 = num9;
-        int sumFirst = 0;
-        int sumLast = 0;
-        int lastNum = 0;
-        int firstNum = 0;
+        int sumTopHalf = 0;
+        int sumLowerHalf = 0;
+        int firstNum = num9 / 1000;
+        int lastNum = num9 % 1000;
         reverseNum = 0;
         int j = 0;
         while (copyNum9 != 0) {
             j++;
             int digit = copyNum9 % 10;
             if (j > 3) {
-                sumFirst += digit;
-                firstNum = firstNum * 10 + digit;
+                sumTopHalf += digit;
             } else {
-                sumLast += digit;
-                lastNum = lastNum * 10 + digit;
+                sumLowerHalf += digit;
             }
             copyNum9 /= 10;
         }
-        System.out.println("Сумма цифр " + firstNum + " = " + sumFirst);
-        System.out.println("Сумма цифр " + lastNum + " = " + sumLast);
-        if (sumFirst == sumLast) {
+        System.out.println("Сумма цифр " + firstNum + " = " + sumTopHalf);
+        System.out.println("Сумма цифр " + lastNum + " = " + sumLowerHalf);
+        if (sumTopHalf == sumLowerHalf) {
             System.out.println("Число " + num9 + " является счастливым");
         }
 
