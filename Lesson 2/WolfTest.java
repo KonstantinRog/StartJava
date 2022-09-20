@@ -2,15 +2,15 @@ public class WolfTest {
 
     public static void main(String[] args) {
         Wolf wolf = new Wolf();
-        wolf.sex = "Мужской";
-        wolf.name = "Фенрир";
-        wolf.weight = 60;
-        wolf.age = 6;
-        wolf.color = "черный";
+        wolf.setSex("Мужской");
+        wolf.setName("Фенрир");
+        wolf.setWeight(60);
+        wolf.setAge(6);
+        wolf.setColor("Черный");
 
-        System.out.print("Пол: " + wolf.sex + "; кличка: " + wolf.name);
-        System.out.print("; вес: " + wolf.weight + "; возраст: " + wolf.age);
-        System.out.print("; окрас: " + wolf.color + "\n");
+        System.out.print("Пол: " + wolf.getSex() + "; кличка: " + wolf.getName());
+        System.out.print("; вес: " + wolf.getWeight() + "; возраст: " + wolf.getAge());
+        System.out.print("; окрас: " + wolf.getColor() + "\n");
 
         wolf.go();
         wolf.sit();
