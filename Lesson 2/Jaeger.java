@@ -1,11 +1,11 @@
 public class Jaeger {
 
-    String modelName;
-    String origin;
-    float height;
-    float weight;
-    int speed;
-    int armor;
+    private String modelName;
+    private String origin;
+    private float height;
+    private float weight;
+    private int speed;
+    private int armor;
 
     public Jaeger() {
     }
