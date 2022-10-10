@@ -19,22 +19,6 @@ public class Jaeger {
         this.armor = armor;
     }
 
-    public void go() {
-        System.out.println("Идет");
-    }
-
-    public void sit() {
-        System.out.println("Сидит");
-    }
-
-    public void hit() {
-        System.out.println("Бьет");
-    }
-
-    public void run() {
-        System.out.println("Бежит");
-    }
-
     public void setModelName(String modelName) {
         this.modelName = modelName;
     }
@@ -81,5 +65,21 @@ public class Jaeger {
 
     public int getArmor() {
         return armor;
+    }
+
+    public void go() {
+        System.out.println("Идет");
+    }
+
+    public void sit() {
+        System.out.println("Сидит");
+    }
+
+    public void hit() {
+        System.out.println("Бьет");
+    }
+
+    public void run() {
+        System.out.println("Бежит");
     }
 }
