@@ -14,22 +14,32 @@ public class GuessNumber {
 
     public void play() {
         hiddenNum = (int) (Math.random() * 100);
-        while ((player1.getNumber() != hiddenNum) && (player2.getNumber() != hiddenNum)) {
-            tryToGuess(player1);
-            if (player1.getNumber() != hiddenNum) {
-                tryToGuess(player2);
+        while (true) {
+            if (tryToGuess(player1)) {
+                break;
+            }
+            if (tryToGuess(player2)) {
+                break;
             }
         }
     }
 
-    private void tryToGuess(Player player) {
-        player.setNumber(scan.nextInt());
+    private boolean tryToGuess(Player player) {
+        setPlayerNumber(player);
         if (player.getNumber() > hiddenNum) {
             System.out.println("Число " + player.getNumber() + " больше того, что загадал компьютер");
+            return false;
         } else if (player.getNumber() < hiddenNum) {
             System.out.println("Число " + player.getNumber() + " меньше того, что загадал компьютер");
+            return false;
         } else {
             System.out.println("Игрок " + player.getName() + " победил! Загаданное число: " + hiddenNum);
+            return true;
         }
+    }
+
+    private void setPlayerNumber(Player player) {
+        System.out.println("Игрок " + player.getName() + " введите число:");
+        player.setNumber(scan.nextInt());
     }
 }
