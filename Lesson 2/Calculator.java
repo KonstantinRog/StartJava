@@ -2,7 +2,6 @@ public class Calculator {
     private int firstNumber;
     private int secondNumber;
     private char sign;
-    private boolean wrong;
 
     public void setFirstNumber(int firstNumber) {
         this.firstNumber = firstNumber;
@@ -17,7 +16,6 @@ public class Calculator {
     }
 
     public void calculate() {
-        boolean wrong = false;
         int result = 0;
         switch(sign) {
             case '+':
@@ -31,7 +29,8 @@ public class Calculator {
                 break;
             case '/':
                 if (secondNumber == 0) {
-                    wrong = true;
+                    System.out.println("Ошибка вычислений");
+                    return;
                 } else {
                     result = firstNumber / secondNumber;
                 }
@@ -44,19 +43,16 @@ public class Calculator {
                 break;
             case '%':
                 if (secondNumber == 0) {
-                    wrong = true;
+                    System.out.println("Ошибка вычислений");
+                    return;
                 } else {
                     result = firstNumber % secondNumber;
                 }
                 break;
             default:
-                wrong = true;
-                break;
+                System.out.println("Ошибка вычислений");
+                return;
         }
-        if (wrong == false) {
-            System.out.println(firstNumber + " " + sign + " " + secondNumber + " = " + result);
-        } else {
-            System.out.println("Ошибка вычислений");
-        }
+        System.out.println(firstNumber + " " + sign + " " + secondNumber + " = " + result);
     }
 }
