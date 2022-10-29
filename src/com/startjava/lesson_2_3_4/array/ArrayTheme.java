@@ -4,56 +4,50 @@ public class ArrayTheme {
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива");
         int[] intArr = {2, 5, 4, 1, 3, 7, 6};
-        for (int num : intArr) {
-            System.out.print(num + " ");
-        }
+        soutArray(intArr);
         intArr = reverseArray(intArr);
         System.out.println();
-        for (int num : intArr) {
-            System.out.print(num + " ");
-        }
+        soutArray(intArr);
 
         System.out.println("\n\n2. Вывод произведения элементов массива");
-        int[] intArr2 = new int[10];
-        int result = 1;
-        for (int i = 0; i < intArr2.length; i++) {
+        int len = 10;
+        int[] intArr2 = new int[len];
+        int multDigits = 1;
+        for (int i = 0; i < len; i++) {
             intArr2[i] = i;
-            result *= (i == 0 || i == 9) ? 1 : intArr2[i];
         }
-        String answer = "";
-        for (int i = 1; i < intArr2.length - 1; i++) {
-            answer += (i == 8) ? intArr2[i] + " = " : intArr2[i] + " * ";
+        for (int i = 1; i < len - 1; i++) {
+            multDigits *= intArr2[i];
+            System.out.print(intArr2[i]);
+            if (i == 8) {
+                System.out.print(" = " + multDigits);
+                break;
+            }
+            System.out.print(" * ");
         }
-        System.out.println(answer + result);
-        System.out.println(intArr2[0]);
-        System.out.println(intArr2[9]);
+        System.out.println();
+        System.out.println(intArr2[0] + " " + intArr2[9]);
 
         System.out.println("\n3. Удаление элементов массива");
-        double[] doubleArr = new double[15];
+        len = 15;
+        double[] doubleArr = new double[len];
         System.out.println("Исходный массив:");
-        for (int i = 0; i < doubleArr.length; i++) {
+        for (int i = 0; i < len; i++) {
             double randomNum = Math.random();
             doubleArr[i] = randomNum;
-            if (i == 8) {
-                System.out.println();
-            }
-            System.out.printf("%.3f ", doubleArr[i]);
+            soutArrayTaskThree(doubleArr[i], i);
         }
-        double averageNum = doubleArr[doubleArr.length / 2];
+        double middleNum = doubleArr[len / 2];
         int zeroedNum = 0;
         System.out.println("\nИзмененный массив:");
-        for (int i = 0; i < doubleArr.length; i++) {
-            if (averageNum < doubleArr[i]) {
+        for (int i = 0; i < len; i++) {
+            if (middleNum < doubleArr[i]) {
                 doubleArr[i] = 0;
                 zeroedNum++;
             }
-            if (i == 8) {
-                System.out.println();
-            }
-            System.out.printf("%.3f ", doubleArr[i]);
+            soutArrayTaskThree(doubleArr[i], i);
         }
-        System.out.println();
-        System.out.println("Количество обнуленных ячеек: " + zeroedNum);
+        System.out.println("\nКоличество обнуленных ячеек: " + zeroedNum);
 
         System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
         char[] charArr = new char[26];
@@ -139,5 +133,16 @@ public class ArrayTheme {
             copyArray[array.length - i - 1] = array[i];
         }
         return  copyArray;
+    }
+    private static void soutArray(int[] array) {
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+    private static void soutArrayTaskThree(double arrayNum, int i) {
+        if (i == 8) {
+            System.out.println();
+        }
+        System.out.printf("%.3f ", arrayNum);
     }
 }
