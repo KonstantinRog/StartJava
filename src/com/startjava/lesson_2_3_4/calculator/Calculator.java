@@ -1,20 +1,20 @@
 package com.startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
-
-    private String[] expression = new String[3];
     private int firstNumber;
     private int secondNumber;
     private char sign;
 
-    public void setExpression(String expression) {
-        this.expression = expression.split(" ");
-    }
-
-    public void calculate() {
+    public void setExpression(String expr) {
+        String[] expression;
+        expression = expr.split(" ");
         firstNumber = Integer.parseInt(expression[0]);
         sign = expression[1].charAt(0);
         secondNumber = Integer.parseInt(expression[2]);
+    }
+
+    public int calculate(String expression) {
+        setExpression(expression);
         int result;
         switch(sign) {
             case '+':
@@ -29,7 +29,7 @@ public class Calculator {
             case '/':
                 if (secondNumber == 0) {
                     System.out.println("Ошибка вычислений");
-                    return;
+                    return 0;
                 } else {
                     result = firstNumber / secondNumber;
                 }
@@ -42,8 +42,8 @@ public class Calculator {
                 break;
             default:
                 System.out.println("Ошибка вычислений");
-                return;
+                return 0;
         }
-        System.out.println(firstNumber + " " + sign + " " + secondNumber + " = " + result);
+        return result;
     }
 }

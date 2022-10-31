@@ -92,25 +92,26 @@ public class ArrayTheme {
         }
 
         System.out.println("\n\n6. Сдвиг элементов массива");
-        String[] strArr = new String[]{"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        String[] srcArr = new String[]{"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
         int length = 0;
-        for (String s : strArr) {
+        for (String s : srcArr) {
             if (!s.trim().equals("")) {
                 length++;
             }
             System.out.print(s + " ");
         }
-        String[] strArr2 = new String[length];
+
+        String[] destArr = new String[length];
         int firstPos = 0;
         int secondPos = 0;
         int copiedIndex = 0;
-        for (int i = 0; i < strArr.length; i++) {
-            if (!strArr[i].trim().equals("") && (copiedIndex < i || firstPos == 0)) {
+        for (int i = 0; i < srcArr.length; i++) {
+            if (!srcArr[i].isBlank() && (copiedIndex < i || firstPos == 0)) {
                 firstPos = i;
                 int copyNum = 0;
-                for (int j = i; j < strArr.length; j++) {
-                    if (strArr[j].trim().equals("")) {
-                        System.arraycopy(strArr, firstPos, strArr2, secondPos, copyNum);
+                for (int j = i; j < srcArr.length; j++) {
+                    if (srcArr[j].isBlank()) {
+                        System.arraycopy(srcArr, firstPos, destArr, secondPos, copyNum);
                         secondPos += copyNum;
                         copiedIndex = j - 1;
                         break;
@@ -120,7 +121,7 @@ public class ArrayTheme {
             }
         }
         System.out.println();
-        for (String string : strArr2) {
+        for (String string : destArr) {
             System.out.print(string + " ");
         }
     }
