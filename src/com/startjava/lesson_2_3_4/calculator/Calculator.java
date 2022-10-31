@@ -5,45 +5,36 @@ public class Calculator {
     private int secondNumber;
     private char sign;
 
-    public void setExpression(String expr) {
-        String[] expression;
-        expression = expr.split(" ");
-        firstNumber = Integer.parseInt(expression[0]);
-        sign = expression[1].charAt(0);
-        secondNumber = Integer.parseInt(expression[2]);
+    public void setExpression(String expression) {
+        String[] partsExpression = expression.split(" ");
+        firstNumber = Integer.parseInt(partsExpression[0]);
+        sign = partsExpression[1].charAt(0);
+        secondNumber = Integer.parseInt(partsExpression[2]);
     }
 
     public int calculate(String expression) {
         setExpression(expression);
-        int result;
         switch(sign) {
             case '+':
-                result = firstNumber + secondNumber;
-                break;
+                return firstNumber + secondNumber;
             case '-':
-                result = firstNumber - secondNumber;
-                break;
+                return firstNumber - secondNumber;
             case '*':
-                result = firstNumber * secondNumber;
-                break;
+                return firstNumber * secondNumber;
             case '/':
                 if (secondNumber == 0) {
                     System.out.println("Ошибка вычислений");
                     return 0;
                 } else {
-                    result = firstNumber / secondNumber;
+                    return firstNumber / secondNumber;
                 }
-                break;
             case '^':
-                result = (int) Math.pow(firstNumber, secondNumber);
-                break;
+                return (int) Math.pow(firstNumber, secondNumber);
             case '%':
-                result = (int) (Math.IEEEremainder(firstNumber, secondNumber));
-                break;
+                return (int) (Math.IEEEremainder(firstNumber, secondNumber));
             default:
                 System.out.println("Ошибка вычислений");
                 return 0;
         }
-        return result;
     }
 }
