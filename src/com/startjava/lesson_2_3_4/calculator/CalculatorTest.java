@@ -5,19 +5,13 @@ public class CalculatorTest {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Calculator calculator = new Calculator();
-        String answer = "";
+        String answer;
 
         do {
-            System.out.println("Введите первое число:");
-            calculator.setFirstNumber(scan.nextInt());
-            System.out.println("Введите знак математической операции:");
-            scan.nextLine();
-            calculator.setSign(scan.nextLine().charAt(0));
-            System.out.println("Введите второе число: ");
-            calculator.setSecondNumber(scan.nextInt());
+            System.out.println("Введите математическое выражение:");
+            calculator.setExpression(scan.nextLine());
             calculator.calculate();
 
-            scan.nextLine();
             do {
                 System.out.println("Хотите продолжить вычисления? [yes/no]:");
                 answer = scan.nextLine();

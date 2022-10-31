@@ -16,13 +16,11 @@ public class ArrayTheme {
         for (int i = 0; i < len; i++) {
             intArr2[i] = i;
         }
-        String answer = "";
         for (int i = 1; i < len - 1; i++) {
             multDigits *= intArr2[i];
-            answer += intArr2[i];
-            answer += (i == 8) ? " = " + multDigits : " * ";
+            System.out.print(i + (i < len - 2 ? " * " : " = " + multDigits));
         }
-        System.out.println(answer + "\n" + intArr2[0] + " " + intArr2[9]);
+        System.out.println("\n" + intArr2[0] + " " + intArr2[9]);
 
         System.out.println("\n3. Удаление элементов массива");
         len = 15;
