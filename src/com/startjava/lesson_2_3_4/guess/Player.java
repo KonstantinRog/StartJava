@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 public class Player {
 
-    static final int len = 10;
+    static final int ATTEMPTS_LIMIT = 10;
     private String name;
-    private int attemptNum;
+    private int attemptNumber;
 
-    int[] numbersArr = new int[len];
+    private int[] numbers = new int[ATTEMPTS_LIMIT];
 
     public Player(String name) {
         this.name = name;
@@ -18,23 +18,25 @@ public class Player {
         return name;
     }
 
-    public void setNumber(int index, int number) {
-        numbersArr[index] = number;
+    public void addNumber(int number) {
+        numbers[attemptNumber] = number;
+        attemptNumber++;
     }
 
-    public int getNumber(int index) {
-        return numbersArr[index];
-    }
-
-    public void addAttemptNum() {
-        attemptNum++;
+    public int getNumber() {
+        return numbers[attemptNumber - 1];
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbersArr, attemptNum);
+        return Arrays.copyOf(numbers, attemptNumber);
+    }
+
+    public int getAttemptNumber() {
+        return attemptNumber;
     }
 
     public void clearNumbers() {
-        Arrays.fill(numbersArr, 0, attemptNum, 0);
+        Arrays.fill(numbers, 0, attemptNumber, 0);
+        attemptNumber = 0;
     }
 }
