@@ -4,7 +4,6 @@ public class IfElseStatementTheme {
     public static void main(String[] args) {
         System.out.println("1. Перевод псевдокода на язык Java");
         int age = 26;
-        int check = 2;
         boolean male = true;
         float height = 1.82f;
         String name = "Konstantin";
